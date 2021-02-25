@@ -1,0 +1,25 @@
+{
+  "name": "my-node-demo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "adm-zip": "^0.5.3",
+    "axios": "^0.21.1",
+    "lru-cache": "^6.0.0",
+    "semver": "^7.3.4",
+    "url-join": "^4.0.1"
+  },
+  "devDependencies": {
+    "@types/adm-zip": "^0.4.33",
+    "@types/axios": "^0.14.0",
+    "@types/lru-cache": "^5.1.0",
+    "@types/semver": "^7.3.4",
+    "@types/url-join": "^4.0.0"
+  }
+}
