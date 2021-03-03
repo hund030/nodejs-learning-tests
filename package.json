@@ -11,14 +11,18 @@
   "dependencies": {
     "adm-zip": "^0.5.3",
     "axios": "^0.21.1",
+    "fs-extra": "^9.1.0",
     "lru-cache": "^6.0.0",
+    "mustache": "^4.1.0",
     "semver": "^7.3.4",
     "url-join": "^4.0.1"
   },
   "devDependencies": {
     "@types/adm-zip": "^0.4.33",
     "@types/axios": "^0.14.0",
+    "@types/fs-extra": "^9.0.7",
     "@types/lru-cache": "^5.1.0",
+    "@types/mustache": "^4.1.1",
     "@types/semver": "^7.3.4",
     "@types/url-join": "^4.0.0"
   }
