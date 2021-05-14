@@ -16,7 +16,14 @@ axios.get("https://graph.microsoft.com/v1.0/myorganization/me/ownedObjects/$/Mic
                 'Authorization': `Bearer ${token}`
             }
         });
-    }))
+    }));
+    await Promise.all(response.data.value.map(async (aad: { id: string }) => {
+        await axios.delete(`https://graph.microsoft.com/v1.0/directory/deletedItems/${aad.id}`, {
+            headers: {
+                'Authorization': `Bearer ${token}`
+            }
+        });
+    }));
 }).catch((error) => {
     console.log(error);
 });
