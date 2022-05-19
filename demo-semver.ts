@@ -1,8 +1,8 @@
 import * as semver from 'semver';
 
-const requirement = '1.x.x';
+const requirement = '0.0.0-alpha';
 
-const versionList = ['1.2.3', '2.3.0', '3.4.0'];
+const versionList = ['1.2.3', '2.3.0', '3.4.0', '0.0.0-alpha'];
 if (semver.validRange(requirement)) {
     const result = semver.maxSatisfying(versionList, requirement);
     if (result) {

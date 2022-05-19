@@ -1,18 +1,17 @@
-import { exec, spawn } from 'child_process';
-
-// spawn('npm', ['install'], { cwd: 'c:\\Users\\zhihuan\\project\\zhijieapp1\\tabs' });
-// spawn('npm', ['run', 'build'], { cwd: 'c:\\Users\\zhihuan\\project\\zhijieapp1\\tabs' });
+import { exec, spawn, execSync } from 'child_process';
+import fs from "fs";
 
 async function execute(
-    command: string, workingDir?: string): Promise<string> {
+    command: string, workingDir: string): Promise<string> {
     return new Promise((resolve, reject) => {
-        exec(command, { cwd: workingDir }, (error, standardOutput) => {
+        exec(command, { cwd: workingDir, env: {"TEAMS_FX_ENV": "dev"} }, (error, standardOutput, stderr) => {
             console.log(`${standardOutput}`);
             if (error) {
                 console.log(error.message);
                 reject(error);
                 return;
             }
+            console.log(stderr);
             resolve(standardOutput);
         });
     });
@@ -21,7 +20,7 @@ async function execute(
 async function executeSpawn(
     command: string, args: string[], workingDir?: string): Promise<number | null> {
     return new Promise((resolve, reject) => {
-        const ls = spawn(command, args, { cwd: workingDir, shell: true });
+        const ls = spawn(command, args, { cwd: workingDir, shell: true, env: {"TEAMS_FX_ENV": "dev"} });
         ls.stdout.on('data', (data) => {
             console.log(`stdout: ${data}`);
         });
@@ -37,27 +36,24 @@ async function executeSpawn(
     });
 }
 
-const start = +new Date();
-const path = 'c:\\Users\\zhihuan\\project\\zhijieapp1\\tabs';
-/*
-execute('npm install', path).then(() => {
-    const middle = +new Date();
-    console.info(`npm install time: ${middle - start}ms`);
-    execute('npm run build', path).then(() => {
-        const end = +new Date();
-        console.info(`npm run build time: ${end - middle}ms`);
-    });
-}).catch(() => {
-    console.log('error');
-})*/
+// console.log(execSync('npm run build:teamsfx', { env:{'TEAMS_FX_ENV': 'dev'}}))
 
-executeSpawn('npm', ['install'], path).then(() => {
-    const middle = +new Date();
-    console.info(`npm install time: ${middle - start}ms`);
-    executeSpawn('npm', ['run', 'build'], path).then(() => {
-        const end = +new Date();
-        console.info(`npm run build time: ${end - middle}ms`);
-    });
+const p = '.';
+execute('npm run build:teamsfx', p).then(() => {
+    console.log(fs.realpathSync(process.cwd()));
+}).catch((err) => {
+    console.log('error');
+})
+
+/*
+execute('timeout 10', p).then(() => {
+    console.log(fs.realpathSync(process.cwd()));
+}).catch((err) => {
+    console.log('error');
+})
+executeSpawn('npm', ['run', 'build:teamsfx'], p).then(() => {
+    console.log(fs.realpathSync(process.cwd()));
 }).catch(() => {
     console.log('error');
 })
+*/

@@ -4,19 +4,24 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "react-scripts build",
+    "build:teamsfx": "timeout 10",
+    "build:teamsfx:dev": "cross-env TEAMS_FX_ENV=dev npm run build:teamsfx"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@microsoft/teamsfx-core": "^1.4.0-rc.0",
     "adm-zip": "^0.5.3",
-    "axios": "^0.21.1",
+    "axios": "^0.24.0",
     "fs-extra": "^9.1.0",
+    "handlebars": "^4.7.7",
     "ignore": "^5.1.8",
     "klaw": "^3.0.0",
     "lru-cache": "^6.0.0",
     "mustache": "^4.1.0",
-    "semver": "^7.3.4",
+    "semver": "^7.3.5",
     "url-join": "^4.0.1"
   },
   "devDependencies": {
@@ -27,6 +32,9 @@
     "@types/lru-cache": "^5.1.0",
     "@types/mustache": "^4.1.1",
     "@types/semver": "^7.3.4",
-    "@types/url-join": "^4.0.0"
+    "@types/url-join": "^4.0.0",
+    "cross-env": "^7.0.3",
+    "env-cmd": "^10.1.0",
+    "ts-node": "^10.4.0"
   }
 }
