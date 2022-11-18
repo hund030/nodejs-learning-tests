@@ -5,7 +5,6 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "react-scripts build",
     "build:teamsfx": "timeout 10",
     "build:teamsfx:dev": "cross-env TEAMS_FX_ENV=dev npm run build:teamsfx"
   },
@@ -20,9 +19,11 @@
     "ignore": "^5.1.8",
     "klaw": "^3.0.0",
     "lru-cache": "^6.0.0",
+    "mock-fs": "^5.1.4",
     "mustache": "^4.1.0",
     "semver": "^7.3.5",
-    "url-join": "^4.0.1"
+    "url-join": "^4.0.1",
+    "yargs": "^17.6.0"
   },
   "devDependencies": {
     "@types/adm-zip": "^0.4.33",
@@ -30,11 +31,14 @@
     "@types/fs-extra": "^9.0.7",
     "@types/klaw": "^3.0.1",
     "@types/lru-cache": "^5.1.0",
-    "@types/mustache": "^4.1.1",
+    "@types/mock-fs": "^4.13.1",
+    "@types/mustache": "^4.2.1",
     "@types/semver": "^7.3.4",
     "@types/url-join": "^4.0.0",
+    "@types/yargs": "^17.0.13",
     "cross-env": "^7.0.3",
     "env-cmd": "^10.1.0",
-    "ts-node": "^10.4.0"
+    "ts-node": "^10.9.1",
+    "typescript": "^4.7.0"
   }
 }
