@@ -2,9 +2,9 @@ import axios from "axios";
 
 console.log("start");
 
-const token = ""
+const token = "";
 
-axios.get("https://graph.microsoft.com/v1.0/myorganization/me/ownedObjects/$/Microsoft.Graph.Application?$select=displayName%2cid%2cappId%2cinfo%2ccreatedDateTime%2ckeyCredentials%2cpasswordCredentials%2cdeletedDateTime&$top=40", {
+axios.get("https://graph.microsoft.com/v1.0/myorganization/me/ownedObjects/$/Microsoft.Graph.Application?$select=displayName%2cid%2cappId%2cinfo%2ccreatedDateTime%2ckeyCredentials%2cpasswordCredentials%2cdeletedDateTime&$top=100", {
     headers: {
         'Authorization': `${token}`
     }
@@ -26,5 +26,5 @@ axios.get("https://graph.microsoft.com/v1.0/myorganization/me/ownedObjects/$/Mic
         });
     }));
 }).catch((error) => {
-    console.log(error);
+    console.log(error.message);
 });

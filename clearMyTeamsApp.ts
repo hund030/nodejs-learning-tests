@@ -2,10 +2,10 @@ import axios from "axios";
 
 console.log("start");
 
-const token =""
+const token = "";
 
 axios
-  .get("https://dev.teams.microsoft.com/api/appdefinitions", {
+  .get("https://dev.teams.microsoft.com/apac/api/appdefinitions/my/", {
     headers: {
       Authorization: `${token}`,
     },
@@ -15,7 +15,7 @@ axios
       response.data.map(async (teamsApp: { teamsAppId: string }) => {
         console.log(`deleting ${teamsApp.teamsAppId}`);
         await axios.delete(
-          `https://dev.teams.microsoft.com/api/appdefinitions/${teamsApp.teamsAppId}`,
+          `https://dev.teams.microsoft.com/apac/api/appdefinitions/${teamsApp.teamsAppId}`,
           {
             headers: {
               Authorization: `${token}`,
@@ -26,5 +26,5 @@ axios
     );
   })
   .catch((error) => {
-    console.log(error);
+    console.log(error.message);
   });
