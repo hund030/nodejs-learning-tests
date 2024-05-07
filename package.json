@@ -5,12 +5,14 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "ts-node",
     "build:teamsfx": "timeout 10",
     "build:teamsfx:dev": "cross-env TEAMS_FX_ENV=dev npm run build:teamsfx"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@azure/storage-blob": "^12.17.0",
     "@microsoft/teamsfx-core": "^1.4.0-rc.0",
     "adm-zip": "^0.5.3",
     "axios": "^0.24.0",
@@ -23,6 +25,7 @@
     "mustache": "^4.1.0",
     "semver": "^7.3.5",
     "url-join": "^4.0.1",
+    "yaml": "^2.3.3",
     "yargs": "^17.6.0"
   },
   "devDependencies": {
