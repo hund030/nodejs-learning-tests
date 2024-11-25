@@ -12,6 +12,9 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@azure/arm-cognitiveservices": "^7.5.0",
+    "@azure/arm-machinelearning": "^3.0.0",
+    "@azure/identity": "^4.5.0",
     "@azure/storage-blob": "^12.17.0",
     "@microsoft/teamsfx-core": "^1.4.0-rc.0",
     "adm-zip": "^0.5.3",
