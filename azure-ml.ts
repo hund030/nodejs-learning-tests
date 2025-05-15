@@ -82,7 +82,7 @@ async function getModelByWorkspace(
       )) {
         resArray.push(model.name);
       }
-    } catch (e) {
+    } catch (e: any) {
       console.debug(e.message);
     }
   }
